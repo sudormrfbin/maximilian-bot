@@ -14,6 +14,16 @@ To run the project from the root:
 python3 bfh
 ```
 
+## Overview
+
+1. User makes account in our webapp
+2. (Optional) User's twitter account connected with our webapp for getting user specific [access token](https://docs.tweepy.org/en/v3.10.0/auth_tutorial.html)
+3. User mentions our bot under a twitter thread
+4. Bot listens for mentions using [streaming API](https://docs.tweepy.org/en/v3.10.0/streaming_how_to.html)
+5. Bot saves thread to database with user's name
+6. User logs in to our webapp and sees saved threads
+7. (Optional) User downloads tweets in pdf or text
+
 ## Summary
 
 Twitter has many great people sharing valuable information in the form of
@@ -25,15 +35,8 @@ threads.
 ## Elements
 
 1. Access Twitter API using Python
-1. Transform the tweets into .txt or pdf format using Python libraries
-1. A simple user management system
-
-## Possible users journey
-
-1. Creating a user account on a website
-1. Connecting their twitter account
-1. Tagging your bot on a thread to save
-1. Login to dashboard for downloading
+2. Transform the tweets into .txt or pdf format using Python libraries
+3. A simple user management system
 
 ## Acceptance criteria
 
