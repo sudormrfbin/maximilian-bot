@@ -24,6 +24,9 @@ python3 bfh
 6. User logs in to our webapp and sees saved threads
 7. (Optional) User downloads tweets in pdf or text
 
+> Using the stream API enables us to monitor for bot mentions in real time
+> and save the relevant thread.
+
 ## Summary
 
 Twitter has many great people sharing valuable information in the form of
