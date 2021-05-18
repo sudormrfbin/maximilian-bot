@@ -2,8 +2,8 @@ import csv
 import tweepy
 import ssl
 
-from .tcreds import CONSUMER_KEY, CONSUMER_SECRET_KEY
-from .tcreds import ACCESS_TOKEN, ACCESS_TOKEN_SECRET
+from tcreds import CONSUMER_KEY, CONSUMER_SECRET_KEY
+from tcreds import ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
