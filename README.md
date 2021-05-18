@@ -1,6 +1,19 @@
 # tinkerhub-bfh-py-twitter
 Twitter bot in Python for TinkerHub BFH
 
+## Setup
+
+Set required tokens in [`.env`](./.env) file in the root of the project (Do NOT commit this file to git).
+
+Make a virtual environment, and then install dependencies with
+`pip install -r requirements.txt`.
+
+To run the project from the root:
+
+```bash
+python3 bfh
+```
+
 ## Summary
 
 Twitter has many great people sharing valuable information in the form of
