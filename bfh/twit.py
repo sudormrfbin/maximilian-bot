@@ -120,10 +120,3 @@ class Thread:
         statuses.
         """
         yield from self.thread
-
-
-if __name__ == "__main__":
-    api = construct_api()
-    streamlistener = BotMentionListener(api=api)
-    stream = tweepy.Stream(auth=api.auth, listener=streamlistener)
-    stream.filter(track=[BOTNAME])

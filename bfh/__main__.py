@@ -1,5 +1,10 @@
-# import csv
-# import tweepy
-# import ssl
+import tweepy
 
-# ssl._create_default_https_context = ssl._create_unverified_context
+from twit import construct_api, BotMentionListener
+from tcreds import BOTNAME
+
+
+api = construct_api()
+streamlistener = BotMentionListener(api=api)
+stream = tweepy.Stream(auth=api.auth, listener=streamlistener)
+stream.filter(track=[BOTNAME])
