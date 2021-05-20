@@ -7,5 +7,5 @@ python-dotenv==0.17.1
 requests==2.25.1
 requests-oauthlib==1.3.0
 six==1.16.0
-tweepy==3.10.0
+git+https://github.com/tweepy/tweepy@68e19cc6b9b23d72369ca1520093770eb18a5a9f
 urllib3==1.26.4
