@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 import tweepy
@@ -9,6 +10,8 @@ from tcreds import BOTNAME
 # Terminology
 # status - tweet
 # thread - series of tweets from the same user posted as a continuous stream
+
+logger = logging.getLogger("bfh.twit")
 
 
 def construct_api() -> tweepy.API:
@@ -27,13 +30,17 @@ class BotMentionListener(tweepy.StreamListener):
         """
         Executed when a new tweet is posted.
         """
+        logger.info(f"Received status: {status.text}")
         if not (status.in_reply_to_status_id and self.is_bot_mentioned(status)):
+            logger.info("Invalid status, discarding...")
             return
 
         thread = Thread.from_tweet(
             self.api, self.api.get_status(status.in_reply_to_status_id)
         )
+        logger.info(f"Retrieved thread: {thread}")
         thread.send_as_direct_messages(status.user.id)
+        logger.info(f"Sent thread to {status.user.screen_name} (id: {status.user.id})")
 
     def is_bot_mentioned(self, status: tweepy.Status) -> bool:
         """
@@ -63,11 +70,15 @@ class Thread:
 
         self.load_thread()
 
+    def __str__(self):
+        return f"'{self.last_status.text}' by {self.author}"
+
     def load_thread(self):
         # only get tweets if not already done so
         if self.thread:
             return
 
+        logger.info("Preparing to retrieve thread")
         # get full text of the tweet
         status = self.api.get_status(self.last_status.id, tweet_mode="extended")
         self.thread.append(status)
@@ -88,6 +99,8 @@ class Thread:
             else:
                 break
 
+        logger.info(f"Retrieved {len(self.thread)} tweets in thread")
+
     @classmethod
     def from_tweet(cls, api: tweepy.API, status: tweepy.Status):
         """
@@ -95,13 +108,13 @@ class Thread:
         itself, i.e. find the beginning of the thread given any tweet in
         between.
         """
-        author = status.user.id
+        # author = status.user.id
 
-        for tweet in api.user_timeline(id=author, since_id=status.id):
-            if tweet.in_reply_to_status_id_str == status.id_str:
-                status = tweet
-            else:
-                break
+        # for tweet in api.user_timeline(id=author, since_id=status.id):
+        #     if tweet.in_reply_to_status_id_str == status.id_str:
+        #         status = tweet
+        #     else:
+        #         break
 
         return cls(api, status)
 
