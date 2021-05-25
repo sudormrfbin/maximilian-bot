@@ -1,47 +1,42 @@
-# tinkerhub-bfh-py-twitter
-Twitter bot in Python for TinkerHub BFH
+![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
 
-## Setup
+# Maximilian
 
-Set required tokens in [`.env`](./.env) file in the root of the project (Do NOT commit this file to git).
+A python bot that sends you twitter threads to your DMs for reading at your
+leisure.
 
-Make a virtual environment, and then install dependencies with
-`pip install -r requirements.txt`.
+## Team members
 
-To run the project from the root:
+1. [Sidharth](https://github.com/Sid9993)
+2. [Anandhu S](https://github.com/anandhu-eng)
 
-```bash
-python3 bfh
-```
+## Team Id
 
-## Overview
+`BFH/recC7iQ8dFoY1ZRJn/2021`
 
-1. User makes account in our webapp
-2. (Optional) User's twitter account connected with our webapp for getting user specific [access token](https://docs.tweepy.org/en/v3.10.0/auth_tutorial.html)
-3. User mentions our bot under a twitter thread
-4. Bot listens for mentions using [streaming API](https://docs.tweepy.org/en/v3.10.0/streaming_how_to.html)
-5. Bot saves thread to database with user's name
-6. User logs in to our webapp and sees saved threads
-7. (Optional) User downloads tweets in pdf or text
+## Link to product walkthrough
 
-> Using the stream API enables us to monitor for bot mentions in real time
-> and save the relevant thread.
+[Maximilian Twitter Bot](https://drive.google.com/file/d/1jvW_MIfNlCa5kiZn2HCYU-_hdVPA5dFq/view?usp=drivesdk)
 
-## Summary
+## How it Works ?
 
-Twitter has many great people sharing valuable information in the form of
-threads. Write a personal script that uses the Twitter API to save the tweet
-thread in a suitable form for later consumption (maybe PDF or text file or a
-table view). User should be able to log in to a dashboard and access saved
-threads.
+1. User mentions [@bfhmaximilian](https://twitter.com/bfhmaximilian) as a reply to
+the last tweet in a thread.
+2. User gets a DM from the bot with all the tweets in the thread as messages.
 
-## Elements
+## Libraries used
 
-1. Access Twitter API using Python
-2. Transform the tweets into .txt or pdf format using Python libraries
-3. A simple user management system
+- `tweepy` - from rev `68e19c`
+- `logging` - from the stdlib
 
-## Acceptance criteria
+## How to configure
 
-- Able to tag the bot on a twitter thread
-- Able to access saved twitter threads
+1. To host the project yourself first get API keys from twitter and then fill them in
+the [`.env`](./.env) file.
+2. Make a virtual environment `python3 -m venv .venv --symlink`
+3. Activate the venv with `source .venv/bin/activate`
+4. Install dependencies with `pip install -r requirements.txt`
+
+## How to Run
+
+From the root of the repo launch the bot with `python3 maximilian`
