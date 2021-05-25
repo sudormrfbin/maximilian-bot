@@ -15,4 +15,4 @@ ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", "")
 ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET", "")
 
 # name of the bot mentioned by users under a thread
-BOTNAME = "bfhthreadreader"
+BOTNAME = "bfhmaximilian"
