@@ -9,6 +9,7 @@ leisure.
 
 1. [Sidharth](https://github.com/Sid9993)
 2. [Anandhu S](https://github.com/anandhu-eng)
+3. [Gokul Soumya](https://github.com/gokulsoumya)
 
 ## Team Id
 
